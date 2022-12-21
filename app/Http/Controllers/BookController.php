@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Inertia\Inertia;
+use App\Models\Book;  // use book model
+use Illuminate\Support\Facades\Validator;
 
 class BookController extends Controller
 {
@@ -13,7 +16,8 @@ class BookController extends Controller
      */
     public function index()
     {
-        //
+        $books = Book::all();
+        return view ('books.index')->with('books', $books);
     }
 
     /**
